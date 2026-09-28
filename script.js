@@ -1,13 +1,11 @@
 let currentImage = 0;
 
-// Get all gallery images
 function getVisibleImages() {
     return Array.from(
         document.querySelectorAll(".gallery-item:not([style*='display: none']) img")
     );
 }
 
-// Open Lightbox
 function openLightbox(image) {
 
     const images = getVisibleImages();
@@ -19,12 +17,10 @@ function openLightbox(image) {
     document.getElementById("lightbox-img").src = image.src;
 }
 
-// Close Lightbox
 function closeLightbox() {
     document.getElementById("lightbox").style.display = "none";
 }
 
-// Next / Previous
 function changeImage(direction) {
 
     const images = getVisibleImages();
@@ -45,7 +41,6 @@ function changeImage(direction) {
         images[currentImage].src;
 }
 
-// Category Filter
 function filterImages(category) {
 
     const items = document.querySelectorAll(".gallery-item");
@@ -66,7 +61,6 @@ function filterImages(category) {
     closeLightbox();
 }
 
-// Close lightbox by clicking outside image
 document.getElementById("lightbox").addEventListener("click", function(event) {
 
     if (event.target === this) {
@@ -75,7 +69,6 @@ document.getElementById("lightbox").addEventListener("click", function(event) {
 
 });
 
-// Keyboard navigation
 document.addEventListener("keydown", function(event) {
 
     const lightbox = document.getElementById("lightbox");
